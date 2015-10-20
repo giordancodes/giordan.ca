@@ -1,0 +1,325 @@
+@import 'setup';
+
+$lato: 'Lato', sans-serif;
+$crimson: #A93B5D;
+$shadow: 1px 1px 5px RGBA(0, 0, 0, 0.5);
+$darken: rgba(0,0,0,0.3);
+
+html{
+	font-size: 62.5%;
+}
+
+body{
+	font-family: $lato;
+	background: #333;
+	color: #eee;
+}
+
+.bg{
+	position: relative;
+}
+
+.bg::after {
+	background: url(/assets/20120701-222611-3.jpg) top no-repeat; 
+	background-size: cover; 
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0; 
+	position: absolute; 
+	height: 100vh;
+	opacity: 0.21; 
+	z-index: -1; 
+	content: "";
+}
+
+.wrapper{
+	max-width: 100rem;
+	margin: 0 auto;
+}
+
+h1, h2, h3, h4{
+	margin: 0;
+	padding: 0;
+	font-family: $lato;
+	text-align: center;
+}
+
+header{
+	text-align: center;
+	margin-bottom: 2rem;
+	background: $darken;
+	padding: 4rem 1rem;
+}
+
+h1, h2{
+	text-shadow: $shadow;
+}
+
+h1{
+	font-size: 8rem;
+	font-weight: 300;
+}
+
+h2{
+	font-size: 4rem;
+	color: gold;
+	font-weight: 400;
+	letter-spacing: 0.6rem;
+	margin: 1rem 0;
+}
+
+h3{
+	font-size: 2rem;
+	margin: 1rem auto 3rem;
+	font-weight: 300;
+	width: 80%;
+	line-height: 3rem;
+}
+
+h4{
+	font-size: 1.8rem;
+	font-weight: 300;
+	width: 20%;
+	margin: 1.8rem auto 1.8rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 2px solid darkcyan;
+}
+
+.fa-envelope {
+	font-size: 3.4rem;
+	margin-top: 0.4rem;
+}
+
+.social{
+	position: relative;
+	ul{
+		display: inline-block;
+		margin: 0 0 2rem;
+		padding: 0;
+		width: 100%;
+		li{
+			list-style: none;
+			float: left;
+			width: 25%;
+			text-align: center;
+			font-size: 2rem;
+			a{
+				color: darkcyan;
+				text-shadow: $shadow;
+				transition: color 1s;
+				&:hover, &:focus{
+					color: gold;
+				}
+				&:active{
+					color: gold;
+				}
+			}
+		}
+	}
+}
+
+.content{
+	padding: 2rem;
+	h4{
+		width: 70%;
+		margin-top: 2rem;
+	}
+	img{
+		margin: 4rem 0;
+		width: 30%;
+		float: left;
+		border-radius: 50%;
+		box-shadow: $shadow;
+		border: 1px solid $darken;
+	}
+	ul{
+		list-style: none;
+		padding: 0;
+		margin: 0 auto;
+		width: 70%;
+		float: left;
+		li{
+			float: left;
+			width: 33.33%;
+			margin: 0;
+			text-align: center;
+			font-size: 1.3rem;
+			font-weight: 300;
+			padding: 1.2rem;
+			text-transform: uppercase;
+			color: white;
+			transition: color 1s;
+			&:hover, &:focus{
+				color: darkcyan;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+footer{
+	text-align: center;
+	color: gold;
+	background: $darken;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	font-size: 1.2rem;
+	p{
+		transition: color 1s;
+		&:hover, &:focus{
+			cursor: pointer;
+			color: darkcyan;
+		}
+	}
+}
+
+//===============
+//QUERIES of the media variety
+//===============
+
+@media all and (max-height: 850px) {
+	.bg::after{
+		height: 100%;
+	}
+	footer {
+		position: relative;
+		padding: 2vh 0 ;
+		margin: 0;
+	}
+}
+
+@media all and (max-width: 1020px) {
+	h3{
+		width: 70%;
+		font-size: 1.8rem;
+	}
+	.bg::after{
+		height: 100%;
+	}
+	footer {
+		position: relative;
+		padding: 2vh 0 ;
+		margin: 0;
+	}
+	.content{
+		ul{
+			li{
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 863px) {
+	h3{
+		width: 75%;
+	}
+	.content{
+		img{
+			display: block;
+			text-align: center;
+			float: none;
+			margin: 0 auto 1rem;
+			width: 25%;
+		}
+		ul{
+			clear: both;
+			width: 100%;
+		}
+	}
+}
+
+
+@media all and (max-width: 578px) {
+	.bg::after {
+		background: #333;
+	}
+	h2{
+		width: 70%;
+		margin: 1rem auto;
+	}
+	.content{
+		img{
+			width: 35%;
+			margin-bottom: 3.3rem;
+		}
+		ul{
+			background: $darken;
+			border-radius: 2%;
+			margin: 1rem auto;
+			padding: 0.6rem 0;
+			float: none;
+			width: 95%;
+			li{
+				width: 100%;
+				font-size: 1.3rem;
+				text-transform: none;
+			}
+		}
+	}
+}
+
+//==============
+//Animate
+//==============
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
